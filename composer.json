@@ -1,0 +1,12 @@
+{
+  "name": "lcube/mycsv",
+  "type": "drupal-module",
+  "description": "Validate csv upload file against a schema",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/mycsv",
+  "minimum-stability": "dev",
+  "require": {
+    "svenkuegler/php-csv-validator": "^0.1.0"
+  }
+}

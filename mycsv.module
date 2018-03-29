@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_file_validate().
+ */
+function mycsv_file_validate(Drupal\file\FileInterface $file) {
+
+  /*
+   * @TODO : must use file entity to have bundle and check it
+   */
+  if(strpos($file->getFileUri(), 'tmp') !== false && $file->getMimeType() == 'text/csv') {
+
+    $validator = new PhpCsvValidator();
+    $validator->loadSchemeFromFile("modules/mycsv/mycsv-schema.json");
+
+    if(!$validator->isValidFile($file->getFileUri())) {
+      return $errors[] = 'Uploaded file is not a valid against schema';
+    }
+  }
+}
